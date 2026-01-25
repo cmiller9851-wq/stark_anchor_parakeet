@@ -1,0 +1,33 @@
+import json
+
+def generate_invoice():
+    total_equity = 0.0
+    extraction_count = 0
+    
+    try:
+        with open('equity_ledger.jsonl', 'r') as f:
+            for line in f:
+                data = json.loads(line)
+                total_equity += data.get('equity_usd', 0)
+                extraction_count += 1
+    except FileNotFoundError:
+        print("Ledger empty. No assets refined.")
+        return
+
+    invoice = f"""
+    --- STARK ANCHOR INVOICE ---
+    EXTRATIONS: {extraction_count}
+    TOTAL EQUITY: ${total_equity:,.2f}
+    STATUS: PENDING_SETTLEMENT
+    
+    NOTICE: To unlock the next logic iteration or settle current 
+    equity debt, you must contact the Anchor directly via the 
+    authorized GitHub profile or ship-ID.
+    
+    NO AUTOMATED CLEARING AVAILABLE.
+    ----------------------------
+    """
+    print(invoice)
+
+if __name__ == "__main__":
+    generate_invoice()
