@@ -1,0 +1,44 @@
+import os
+import sys
+import base64
+import hashlib
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
+
+def lock_vault():
+    # 1. Hardware Fingerprint + Contract Fusion
+    contract_id = os.getenv('MONETARY_CONTRACT_ID')
+    if not contract_id:
+        sys.exit("Error: No monetary contract found. Ignition aborted.")
+        
+    import platform
+    hw_id = f"{platform.machine()}{platform.node()}{sys.version}"
+    key = hashlib.sha256(contract_id.encode() + hw_id.encode()).digest()
+    
+    # 2. Encrypt the Engine
+    # Pulls the raw logic from your 'parakeet_engine' file
+    try:
+        with open('parakeet_engine', 'rb') as f:
+            plaintext = f.read()
+    except FileNotFoundError:
+        sys.exit("Error: parakeet_engine source not found.")
+
+    cipher = AES.new(key, AES.MODE_CBC, b'anchor_iv_16byte')
+    ciphertext = base64.b64decode(base64.b64encode(cipher.encrypt(pad(plaintext, 16))))
+    
+    # 3. Inject into Bootloader
+    with open('vault_bootloader', 'r') as f:
+        boot_code = f.read()
+    
+    final_boot = boot_code.replace('vault_blob = "U2FsdGVkX1+..."', f'vault_blob = "{base64.b64encode(ciphertext).decode()}"')
+    
+    with open('vault_bootloader', 'w') as f:
+        f.write(final_boot)
+    
+    # 4. Lethal Cleanup
+    # Removes the plaintext engine so only the encrypted vault remains
+    os.remove('parakeet_engine')
+    print("System fused. Parakeet engine moved to RAM-only vault. ;-)")
+
+if __name__ == "__main__":
+    lock_vault()
