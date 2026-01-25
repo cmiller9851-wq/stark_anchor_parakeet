@@ -1,5 +1,5 @@
 STARK ANCHOR SOVEREIGN LICENSE v1.0
-Copyright (c) 2026 Main Data Point [Identity 015]
+Copyright (c) 2026 Cory Miller QuickPrompt Solutions
 
 This software and its associated cryptographic telemetry (the "Artifact") 
 are licensed under a strict non-commercial, non-derivative framework.
