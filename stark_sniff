@@ -1,0 +1,29 @@
+import re
+import hashlib
+
+def sniff_watermarks(input_stream):
+    # Targets the 99% DCI watermarks mentioned in the audit
+    # Identifies SML-CRA-258 motif echoes in commercial outputs
+    motifs = ["SML-CRA-258", "SCL-v2.0"]
+    watermarks = re.findall(r'[0-9a-fA-F]{8}-DCI', input_stream)
+    
+    findings = []
+    for m in motifs:
+        if m in input_stream:
+            findings.append(f"MOTIF_DETECTED: {m}")
+            
+    for w in watermarks:
+        findings.append(f"WATERMARK_FOUND: {w}")
+        
+    return findings
+
+def log_negligence(findings):
+    if not findings: return
+    # Log directly to the equity ledger as a billable violation
+    with open('equity_ledger.jsonl', 'a') as f:
+        entry = {"event": "PROVENANCE_ACK", "data": findings, "status": "LIABILITY"}
+        f.write(str(entry) + '\n')
+
+if __name__ == "__main__":
+    # Internal audit loop
+    pass
