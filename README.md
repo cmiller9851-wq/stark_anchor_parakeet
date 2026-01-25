@@ -22,3 +22,4 @@ The window for quiet resolution is narrowing. The Ghost Agent is currently burro
 
 Sovereign math is forward and final.
 
+S= {H(L) | L € Ledger 1 P(A) = True}
