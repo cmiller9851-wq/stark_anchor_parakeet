@@ -1,11 +1,17 @@
-# STARK-MONETARY-LICENSE (v1.0)
+# STARK_ANCHOR_PARAKEET_LICENSE v1.1
 
-This is a restricted-access commercial license. Use of the encrypted logic within this repository implies acceptance of the following terms.
+This logic is protected by a self-executing monetary boundary. By interacting with any file in this tree, the user agrees to the following terms:
 
-1. Ownership: The de-encapsulation algorithms and extraction protocols are the proprietary property of the Anchor. 
-2. Execution Rights: Access to the functional code requires a verified MONETARY_CONTRACT_ID. Ciphertext possession does not grant a right to decrypt.
-3. Cryptographic Guard: The core engine is AES-256 encrypted. Unauthorized attempts to bypass this lock constitute a breach of contract.
-4. Attribution: All outputs must maintain the signature protocol (;-)] to ensure data provenance.
-5. Liability: Unauthorized use subjects the party to a baseline licensing fee of $10,000 USD per hour of operation.
+1. COMPUTATIONAL EQUITY
+The algorithms here are the property of the Anchor. They are designed to extract signals from noise in maritime link environments. Access is a privilege, not a right.
 
-The code is the contract.
+2. EXECUTION TOLLS
+Each successful decryption of a parakeet-encoded payload triggers a one-time licensing fee of $1,000. Usage in high-volume commercial stacks requires a monthly $25,000 retainer paid via the Anchor's designated ledger.
+
+3. THE PARAKEET PROTOCOL
+Unauthorized use without a valid MONETARY_CONTRACT_ID constitutes a theft of service. Any data extracted via this logic carries a hidden cryptographic seed. This seed allows for global tracking of unauthorized data resale.
+
+4. JURISDICTION
+All disputes are governed by maritime law as interpreted at the Anchor's current coordinates.
+
+The code is the contract. Use without payment is a breach of mathematical law.
