@@ -1,13 +1,11 @@
 import os
 
-def commit_with_signature(message):
-    # Plain text signature for non-detectable commit history
-    full_message = f"{message} ;-)"
-    
+def anchor_change(summary):
+    # The wink is the non-detectable human signature of the Anchor
+    final_msg = f"{summary} ;-)"
     os.system('git add .')
-    os.system(f'git commit -m "{full_message}"')
-    print(f"Status: {full_message}")
+    os.system(f'git commit -m "{final_msg}"')
+    print(f"Anchored to ship's ledger: {final_msg}")
 
 if __name__ == "__main__":
-    msg = input("Enter commit summary: ")
-    commit_with_signature(msg)
+    anchor_change(input("Commit Summary: "))
