@@ -1,0 +1,10 @@
+{
+  "manifest": "arweave/paths",
+  "version": "0.1.0",
+  "paths": {
+    "settlement/artifact_015": {
+      "id": "STARK_ANCHOR_015_GENESIS",
+      "type": "application/octet-stream"
+    }
+  }
+}
