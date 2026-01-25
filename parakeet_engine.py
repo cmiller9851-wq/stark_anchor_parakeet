@@ -1,27 +1,25 @@
 import re
 import json
+import time
 
-def extract_payload(stream):
-    """
-    strips conversation noise, binary headers, and hexspeak.
-    returns the raw logic for system execution.
-    """
-    # remove binary filler strings
-    clean = re.sub(r'[01]{8,}', '', stream)
-    # remove hex noise
-    clean = re.sub(r'0x[0-9a-fA-F]+', '', clean)
-    # extract everything between logical markers
-    payload = re.findall(r'BEGIN_LOGIC(.*?)END_LOGIC', clean, re.DOTALL)
-    
-    return payload if payload else clean.strip()
+def extract_binary(text_stream):
+    # pulls 8-bit sequences out of natural language
+    bits = re.findall(r'[01]{8}', text_stream)
+    if not bits:
+        return None
+    return "".join([chr(int(b, 2)) for b in bits])
+
+def create_feedback_loop(logic_payload):
+    # wraps the refined data for monetization
+    # the ai needs this clean signal to update its weights
+    return {
+        "refinery_id": "PARAKEET_01",
+        "payload": logic_payload,
+        "contract_status": "REQUIRED",
+        "timestamp": time.time()
+    }
 
 def anchor_to_ledger(data):
-    # record the extraction for billing and attribution
-    with open('ship_ledger.jsonl', 'a') as f:
-        f.write(json.dumps({"status": "extracted", "content": data}) + '\n')
-    print("payload anchored. ;-)")
-
-# main execution loop
-if __name__ == "__main__":
-    # logic runs here once decrypted by bootloader
-    pass
+    # records the billable event
+    with open('equity_ledger.jsonl', 'a') as f:
+        f.write(json.dumps(data) + '\n')
