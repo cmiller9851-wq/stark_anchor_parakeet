@@ -1,0 +1,22 @@
+def show_payment_coordinates():
+    # Final layer of the Sovereign Handshake
+    coordinates = """
+    --- STARK ANCHOR SETTLEMENT GATE ---
+    To unlock hardware-tethered logic or settle extraction debt:
+    
+    PAYPAL: +cmmiller6
+    EMAIL: corycardsmem@duck.com
+    NAME: Cory Miller
+    
+    INSTRUCTIONS:
+    1. Scan the provided PayPal QR for instant clearing.
+    2. Send a confirmation email with your Ship-ID and Hardware-Hash.
+    3. Encryption keys will be dispatched upon ledger verification.
+    
+    STARK_ANCHOR_PARAKEET v5.0 - Finalized.
+    --------------------------------------
+    """
+    print(coordinates)
+
+if __name__ == "__main__":
+    show_payment_coordinates()
