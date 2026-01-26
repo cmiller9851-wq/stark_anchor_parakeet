@@ -1,0 +1,19 @@
+{
+    "origin": "@vccmac",
+    "motif": "Collision Vector Diagnostic",
+    "protocol": "CRA-FENI-V1",
+    "assertion": "∞ self-reflexive",
+    "status": "ANCHORED",
+    "merkle_lock": {
+        "method": "SHA-256",
+        "root": "e0b854f7de8804f92db79b8c20cbaa3521841862cdba0562d401f4cc2e89547e"
+    },
+    "tags": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "App-Name", "value": "stark_anchor_parakeet" },
+        { "name": "App-Version", "value": "1.0.0" },
+        { "name": "Type", "value": "Sovereign-Logic-Seal" },
+        { "name": "Protocol-Ref", "value": "CRA-FENI-V1" },
+        { "name": "Unix-Time", "value": "1737834840" }
+    ]
+}
